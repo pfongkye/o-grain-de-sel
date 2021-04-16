@@ -1,5 +1,6 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Link from 'next/link';
+import styles from '../styles/Home.module.css';
 import products from '../products.json';
 
 export default function Home() {
@@ -17,18 +18,22 @@ export default function Home() {
 
         <p className={styles.description}>
           Quelques mets !
-          <br/>
+          <br />
           <em>Votre repas :</em> 1 part
-          <br/>
+          <br />
           <em>La note :</em> 1€
         </p>
 
         <ul className={styles.grid}>
           {products.map(({ id, name, img, description }) => (
             <li className={styles.card} key={id}>
-              <img src={img} alt={name} />
-              <h3>{name}</h3>
-              <p>{description}</p>
+              <Link href={`/${id}`}>
+                <div>
+                  <img src={img} alt={name} />
+                  <h3>{name}</h3>
+                  <p>{description}</p>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
