@@ -17,11 +17,15 @@ export default function Home() {
 
         <p className={styles.description}>
           Quelques mets !
+          <br/>
+          <em>Votre repas :</em> 1 part
+          <br/>
+          <em>La note :</em> 1€
         </p>
 
         <ul className={styles.grid}>
-          {products.map(({ name, img, description }) => (
-            <li className={styles.card} key={name}>
+          {products.map(({ id, name, img, description }) => (
+            <li className={styles.card} key={id}>
               <img src={img} alt={name} />
               <h3>{name}</h3>
               <p>{description}</p>
